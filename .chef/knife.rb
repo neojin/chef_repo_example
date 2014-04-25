@@ -7,3 +7,7 @@ validation_key           '/Users/jinlee/Documents/work/chef_book/chef-repo/.chef
 chef_server_url          'https://33.33.33.33'
 syntax_check_cache_path  '/Users/jinlee/Documents/work/chef_book/chef-repo/.chef/syntax_check_cache'
 cookbook_path [ '/Users/jinlee/Documents/work/chef_book/chef-repo/cookbooks' ]
+
+cookbook_copyright "neojin"
+cookbook_license "MIT"
+cookbook_email "jinslee@gmail.com"
