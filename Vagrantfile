@@ -5,12 +5,24 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = 'hashicorp/precise64'
+  config.omnibus.chef_version = :latest
+  #TODO setup SSL verification
+  config.butcher.verify_ssl = false
+
+  config.vm.provision :chef_client do |chef|
+    chef.provisioning_path = '/etc/chef'
+    chef.chef_server_url = 'https://33.33.33.33'
+    chef.validation_key_path = '.chef/chef-validator.pem'
+    chef.validation_client_name = 'chef-validator'
+    chef.node_name = 'mynode'
+  end
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "base"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
