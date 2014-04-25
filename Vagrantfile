@@ -13,6 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_client do |chef|
     chef.provisioning_path = '/etc/chef'
+    #TODO setup SSL verification
+    #chef.custom_config_path = "Vagrantfile.chef"
     chef.chef_server_url = 'https://33.33.33.33'
     chef.validation_key_path = '.chef/chef-validator.pem'
     chef.validation_client_name = 'chef-validator'
